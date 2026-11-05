@@ -1,0 +1,41 @@
+# Services for Arcane
+
+prune_images:
+  fields:
+    device_id:
+      required: true
+      selector:
+        device:
+          integration: arcane
+          model: Environment
+    dangling:
+      required: false
+      selector:
+        boolean:
+
+prune_volumes:
+  fields:
+    device_id:
+      required: true
+      selector:
+        device:
+          integration: arcane
+          model: Environment
+
+prune_networks:
+  fields:
+    device_id:
+      required: true
+      selector:
+        device:
+          integration: arcane
+          model: Environment
+
+recreate_container:
+  fields:
+    container_device_id:
+      required: true
+      selector:
+        device:
+          integration: arcane
+          model: Container

@@ -1,0 +1,185 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect to Arcane",
+        "description": "Enter the URL of your Arcane manager and an API key. Create the key in Arcane under Settings -> API Keys.",
+        "data": {
+          "url": "URL",
+          "api_token": "API key",
+          "verify_ssl": "Verify SSL certificate"
+        },
+        "data_description": {
+          "url": "The URL of the Arcane manager, for example http://192.168.3.4:3552",
+          "api_token": "An API key with access to environments, containers and projects",
+          "verify_ssl": "Disable only if the Arcane instance uses a self-signed certificate"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Re-authenticate",
+        "description": "The Arcane API key is no longer valid. Enter a new one.",
+        "data": {
+          "api_token": "API key"
+        }
+      },
+      "reconfigure": {
+        "title": "Reconfigure Arcane",
+        "description": "Update the URL or API key of this Arcane instance.",
+        "data": {
+          "url": "URL",
+          "api_token": "API key",
+          "verify_ssl": "Verify SSL certificate"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect",
+      "invalid_auth": "Invalid API key",
+      "timeout_connect": "Timeout while connecting",
+      "unknown": "Unexpected error"
+    },
+    "abort": {
+      "already_configured": "This Arcane instance is already configured",
+      "unique_id_mismatch": "The URL does not match the previously configured Arcane instance.",
+      "reauth_successful": "Re-authentication was successful",
+      "reconfigure_successful": "Re-configuration was successful"
+    }
+  },
+  "config_subentries": {
+    "environment": {
+      "entry_type": "Environment",
+      "initiate_flow": {
+        "user": "Add environment"
+      },
+      "step": {
+        "user": {
+          "title": "Add an Arcane environment",
+          "description": "Select an environment that is not yet configured.",
+          "data": {
+            "environment_id": "Environment"
+          }
+        }
+      },
+      "abort": {
+        "no_new_environments": "All available environments on this Arcane instance have already been added.",
+        "config_entry_not_loaded": "Cannot add an environment while the Arcane integration is not loaded.",
+        "cannot_connect": "Failed to connect",
+        "invalid_auth": "Invalid API key",
+        "timeout_connect": "Timeout while connecting",
+        "unknown": "Unexpected error"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "image": { "name": "Image" },
+      "container_state": { "name": "State" },
+      "container_status": { "name": "Status" },
+      "cpu_usage": { "name": "CPU usage" },
+      "memory_usage": { "name": "Memory usage" },
+      "memory_usage_percentage": { "name": "Memory usage percentage" },
+      "memory_limit": { "name": "Memory limit" },
+      "container_started_at": { "name": "Started" },
+      "docker_version": { "name": "Docker version" },
+      "kernel_version": { "name": "Kernel version" },
+      "operating_system": { "name": "Operating system" },
+      "memory_total": { "name": "Total memory" },
+      "cpu_total": { "name": "Total CPU" },
+      "containers_running": { "name": "Containers running" },
+      "containers_stopped": { "name": "Containers stopped" },
+      "containers_paused": { "name": "Containers paused" },
+      "containers_count": { "name": "Containers total" },
+      "images_count": { "name": "Images" },
+      "image_disk_usage_total_size": { "name": "Image disk usage total size" },
+      "volumes_count": { "name": "Volumes" },
+      "project_status": { "name": "Status" },
+      "project_service_count": { "name": "Service count" },
+      "project_running_count": { "name": "Running services" }
+    },
+    "binary_sensor": {
+      "status": { "name": "Status" },
+      "connected": { "name": "Connected" }
+    },
+    "button": {
+      "images_prune": { "name": "Prune unused images" },
+      "volumes_prune": { "name": "Prune unused volumes" },
+      "networks_prune": { "name": "Prune unused networks" },
+      "restart_container": { "name": "Restart container" },
+      "pause_container": { "name": "Pause container" },
+      "resume_container": { "name": "Resume container" },
+      "recreate_container": { "name": "Recreate container" },
+      "update_project": { "name": "Update project" }
+    },
+    "switch": {
+      "container": { "name": "Container" },
+      "project": { "name": "Project" }
+    },
+    "update": {
+      "container_image_update": { "name": "Image update available" },
+      "server_update": { "name": "Update" }
+    },
+    "event": {
+      "event": { "name": "Event" }
+    }
+  },
+  "services": {
+    "prune_images": {
+      "name": "Prune unused images",
+      "description": "Removes unused images from an Arcane environment.",
+      "fields": {
+        "device_id": {
+          "name": "Environment",
+          "description": "The Arcane environment to prune the images on."
+        },
+        "dangling": {
+          "name": "Only dangling",
+          "description": "If true, only remove dangling images."
+        }
+      }
+    },
+    "prune_volumes": {
+      "name": "Prune unused volumes",
+      "description": "Removes unused volumes from an Arcane environment.",
+      "fields": {
+        "device_id": {
+          "name": "Environment",
+          "description": "The Arcane environment to prune the volumes on."
+        }
+      }
+    },
+    "prune_networks": {
+      "name": "Prune unused networks",
+      "description": "Removes unused networks from an Arcane environment.",
+      "fields": {
+        "device_id": {
+          "name": "Environment",
+          "description": "The Arcane environment to prune the networks on."
+        }
+      }
+    },
+    "recreate_container": {
+      "name": "Recreate container",
+      "description": "Pulls the latest image and recreates a container in Arcane.",
+      "fields": {
+        "container_device_id": {
+          "name": "Container",
+          "description": "The Arcane container device to recreate."
+        }
+      }
+    }
+  },
+  "exceptions": {
+    "cannot_connect": {
+      "message": "An error occurred while trying to connect to the Arcane instance."
+    },
+    "invalid_auth": {
+      "message": "An error occurred while trying to authenticate."
+    },
+    "invalid_target": {
+      "message": "Invalid device targeted."
+    },
+    "timeout_connect": {
+      "message": "A timeout occurred while trying to connect to the Arcane instance."
+    }
+  }
+}

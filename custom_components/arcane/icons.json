@@ -1,0 +1,32 @@
+{
+  "entity": {
+    "binary_sensor": {
+      "status": { "default": "mdi:circle" },
+      "connected": { "default": "mdi:lan-connect" }
+    },
+    "button": {
+      "images_prune": { "default": "mdi:image-remove" },
+      "volumes_prune": { "default": "mdi:database-remove" },
+      "networks_prune": { "default": "mdi:lan-disconnect" },
+      "restart_container": { "default": "mdi:restart" },
+      "pause_container": { "default": "mdi:pause" },
+      "resume_container": { "default": "mdi:play" },
+      "recreate_container": { "default": "mdi:autorenew" },
+      "update_project": { "default": "mdi:update" }
+    },
+    "event": {
+      "event": { "default": "mdi:bulletin-board" }
+    },
+    "sensor": {
+      "cpu_usage": { "default": "mdi:cpu-64-bit" },
+      "memory_usage": { "default": "mdi:memory" },
+      "memory_usage_percentage": { "default": "mdi:memory" },
+      "project_status": { "default": "mdi:state-machine" },
+      "containers_running": { "default": "mdi:play-box" }
+    },
+    "switch": {
+      "container": { "default": "mdi:docker" },
+      "project": { "default": "mdi:layers-triple" }
+    }
+  }
+}
