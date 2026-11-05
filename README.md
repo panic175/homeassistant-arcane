@@ -1,3 +1,11 @@
+> **⚠️ This repository has been superseded.**
+> Development continues in the fork of the maintained
+> [ProfessorQuantumUniverse/Arcane-HA](https://github.com/ProfessorQuantumUniverse/Arcane-HA)
+> integration: **[panic175/Arcane-HA](https://github.com/panic175/Arcane-HA)**.
+> The fork ships a full Home Assistant test suite, an options flow, API-key
+> permission handling and a hardened API client. This repository is kept for
+> reference only and has been archived.
+
 # Arcane for Home Assistant
 
 [![CI](https://github.com/panic175/homeassistant-arcane/actions/workflows/ci.yml/badge.svg)](https://github.com/panic175/homeassistant-arcane/actions/workflows/ci.yml)
